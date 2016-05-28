@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'rest-client'
+require 'httparty'
 require 'json'
 
 class UserController < Sinatra::Base
@@ -7,18 +7,27 @@ class UserController < Sinatra::Base
   set :root, File.join(File.dirname(__FILE__), '..')
   set :views, Proc.new { File.join(root, "views") }
 
+  before do
+    p params
+  end
+
   get "/" do
     redirect to"/users"
   end
 
   get "/users" do
-    response = RestClient.get("localhost:4567/users")
+    response = HTTParty.get("http://localhost:4567/users")
     @users = JSON.parse(response)
     erb :index
   end
 
   get "/users/new" do
     erb :"users/new"
+  end
+
+  post "/users/new" do
+    HTTParty.post("http://localhost:4567/users/new", :query => params )
+    redirect to"users"
   end
 
   get "/users/edit" do

@@ -5,6 +5,15 @@ require 'json'
 class UsersApi < Sinatra::Base
   use Rack::MethodOverride
 
+  before do
+    p params
+  end
+
+  after do
+    p "after"
+    p params
+  end
+
   get "/users" do
     User.all.to_json
   end
