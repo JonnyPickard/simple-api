@@ -35,7 +35,14 @@ class UserController < Sinatra::Base
   end
 
   get "/users/delete" do
+    response = HTTParty.get("http://localhost:4567/users")
+    @users = JSON.parse(response)
     erb :"users/delete"
+  end
+
+  post "/users/delete" do
+    HTTParty.post("http://localhost:4567/users/#{params["user_id"]}", :query => params )
+    redirect to"users/delete"
   end
 
   run! if app_file == $0

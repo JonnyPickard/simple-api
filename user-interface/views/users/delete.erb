@@ -1,0 +1,11 @@
+<% @users.each do | user | %>
+  <form action="/users/delete" method="post" >
+
+    <input type="hidden" name="user_id" value="<%=user["id"]%>" />
+    <h2>Delete: <%= user["username"] %></h2>
+    <button type='submit'>
+
+      Delete
+    </button>
+  </form>
+<% end %>

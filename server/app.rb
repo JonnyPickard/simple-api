@@ -6,7 +6,11 @@ class UsersApi < Sinatra::Base
   use Rack::MethodOverride
 
   before do
+    p "Before"
     p params
+    p "User Id"
+    p params["user_id"]
+    p params[:user_id]
   end
 
   after do
@@ -49,8 +53,9 @@ class UsersApi < Sinatra::Base
     end
   end
 
-  delete "/users/:id" do
+  post "/users/:id" do
     @user = User.get(params[:user_id])
+
 
     if @user.destroy
       {:success => "ok"}.to_json
