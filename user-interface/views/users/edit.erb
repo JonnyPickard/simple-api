@@ -1,0 +1,14 @@
+<p>
+  <a href="/users">Home</a>
+</p>
+
+<% @users.each do | user | %>
+  <form action='/users/edit' method='POST'>
+    <label for='name'>
+      name: <%=user["username"] %> <input name='name' type='text'/>
+    </label>
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="user_id" value="<%=user["id"]%>" />
+    <input type='submit' value="Update <%=user["username"] %>"/>
+  </form>
+<% end %>

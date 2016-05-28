@@ -5,19 +5,6 @@ require 'json'
 class UsersApi < Sinatra::Base
   use Rack::MethodOverride
 
-  before do
-    p "Before"
-    p params
-    p "User Id"
-    p params["user_id"]
-    p params[:user_id]
-  end
-
-  after do
-    p "after"
-    p params
-  end
-
   get "/users" do
     User.all.to_json
   end
@@ -42,9 +29,9 @@ class UsersApi < Sinatra::Base
     end
   end
 
-  put '/things/:id' do
+  put '/users/:id' do
     @user = User.get(params[:user_id])
-    @user.update(params)
+    @user.update(username: params[:name])
 
     if @user.save
       @user.to_json

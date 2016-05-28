@@ -31,7 +31,14 @@ class UserController < Sinatra::Base
   end
 
   get "/users/edit" do
+    response = HTTParty.get("http://localhost:4567/users")
+    @users = JSON.parse(response)
     erb :"users/edit"
+  end
+
+  post "/users/edit" do
+    HTTParty.put("http://localhost:4567/users/#{params["user_id"]}", :query => params )
+    redirect to"users/edit"
   end
 
   get "/users/delete" do
