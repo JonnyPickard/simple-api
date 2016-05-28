@@ -1,13 +1,19 @@
-require_relative "../sinatra_config"
+require 'sinatra'
+require 'rest-client'
+require 'json'
 
 class UserController < Sinatra::Base
   set :port, 9494
+  set :root, File.join(File.dirname(__FILE__), '..')
+  set :views, Proc.new { File.join(root, "views") }
 
   get "/" do
     redirect to"/users"
   end
 
   get "/users" do
+    response = RestClient.get("localhost:4567/users")
+    @users = JSON.parse(response)
     erb :index
   end
 
