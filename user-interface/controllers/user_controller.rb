@@ -3,6 +3,10 @@ require_relative "../sinatra_config"
 class UserController < Sinatra::Base
   set :port, 9494
 
+  get "/" do
+    redirect to"/users"
+  end
+
   get "/users" do
     erb :index
   end
