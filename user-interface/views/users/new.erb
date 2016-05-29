@@ -1,14 +1,30 @@
+<div class="title" id="page-title">
+  <h1>
+    Create User
+  </h1>
+</div>
+<div class="seperator">
+  <br>
+    <hr/>
+  <br>
+</div>
 <div class="create-user">
   <form action='/users/new' method='POST'>
     <label for='name'>
       <h2>
-        Create User
+        <p id="change-name">
+          Name:
+          <br />
+        </p>
+        <p>
+          <p>
+            <input name='name' type='text'/>
+            <br />
+          </p>
+          <input type='submit' value='Create'/>
+          <br />
+        </p>
       </h2>
-      <h3>
-        Name:
-        <input name='name' type='text'/>
-        <input type='submit' value='Sign up'/>
-      </h3>
     </label>
   </form>
 </div>

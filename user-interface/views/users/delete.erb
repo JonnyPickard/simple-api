@@ -1,13 +1,26 @@
+<div class="title" id="page-title">
+  <h1>
+    Delete User
+  </h1>
+</div>
+<div class="seperator">
+  <br>
+    <hr/>
+  <br>
+</div>
 <div class="delete-user">
   <% @users.each do | user | %>
     <form action="/users/delete" method="post" >
       <input type="hidden" name="user_id" value="<%=user["id"]%>" />
         <h2>
-          Delete <%= user["username"] %>?
+          <p id="change-name">
+            Delete <%= user["username"] %>?
+            <br />
+          </p>
+          <button type='submit'>
+            Delete
+          </button>
         </h2>
-      <button type='submit'>
-        Delete
-      </button>
     </form>
   <% end %>
 </div>

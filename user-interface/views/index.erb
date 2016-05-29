@@ -1,19 +1,24 @@
-<div class="users-index">
-  <h2>
+<div class="title" id="page-title">
+  <h1>
     Users
-  </h2>
+  </h1>
+</div>
+<div class="seperator">
+  <br>
+    <hr/>
+  <br>
+</div>
+<div class="users-index">
   <% @users.each do | user | %>
   <ul>
-    <h3>
-      <span class="user_id">
-        ID:
-        <%= user["id"] %>
-      </span>
-      <span class="username">
-        User:
+    <h2>
+      <span class="username" id="username">
         <%= user["username"] %>
       </span>
-    </h3>
+      <span class="user_id" id="user_id">
+        #<%= user["id"] %>
+      </span>
+    </h2>
   </ul>
   <% end %>
 </div>

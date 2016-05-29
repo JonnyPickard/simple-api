@@ -1,0 +1,23 @@
+.main-body {
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+#nav-color {
+  font-family: 'Gloria Hallelujah', cursive;
+  background-color: #4EE2EC;
+}
+
+#page-title h1 {
+  padding-top: 2%;
+  font-size: 500%;
+  color: #ff8c1a;
+}
+
+#user_id {
+  color: blue;
+}
+
+#change-name {
+  padding: 5px;
+}

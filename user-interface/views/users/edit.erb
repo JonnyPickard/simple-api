@@ -1,15 +1,33 @@
+<div class="title" id="page-title">
+  <h1>
+    Edit User
+  </h1>
+</div>
+<div class="seperator">
+  <br>
+    <hr/>
+  <br>
+</div>
 <div class="edit-user">
   <% @users.each do | user | %>
     <form action='/users/edit' method='POST'>
       <label for='name'>
         <h2>
-          Change Name for <%= user["username"] %>?
+          <p id="change-name">
+            Change Name for <%= user["username"] %>?
+            <br />
+          </p>
+          <p>
+            <input name='name' type='text' id="name"/>
+            <input type="hidden" name="_method" value="put">
+            <input type="hidden" name="user_id" value="<%=user["id"]%>" />
+            <p>
+                <input type='submit' value="Update"/>
+              <br />
+            </p>
+          </p>
         </h2>
       </label>
-      <input name='name' type='text' id="name"/>
-      <input type="hidden" name="_method" value="put">
-      <input type="hidden" name="user_id" value="<%=user["id"]%>" />
-      <input type='submit' value="Update"/>
     </form>
   <% end %>
 </div>
