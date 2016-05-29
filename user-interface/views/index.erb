@@ -1,13 +1,19 @@
-<div class="users">
-  <h2>Users</h2>
-  <div class="new-user">
-    <a href="http://localhost:9494/users/new">Create a new user!</a>
-    <a href="http://localhost:9494/users/new">Delete a user!</a>
-    <a href="http://localhost:9494/users/edit">Edit a user!</a>
-  </div>
+<div class="users-index">
+  <h2>
+    Users
+  </h2>
   <% @users.each do | user | %>
   <ul>
-    <%= user["id"] %>: <%= user["username"] %>
+    <h3>
+      <span class="user_id">
+        ID:
+        <%= user["id"] %>
+      </span>
+      <span class="username">
+        User:
+        <%= user["username"] %>
+      </span>
+    </h3>
   </ul>
   <% end %>
 </div>

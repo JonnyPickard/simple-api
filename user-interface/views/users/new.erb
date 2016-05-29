@@ -1,10 +1,14 @@
-<p>
-  <a href="/users">Home</a>
-</p>
-
-<form action='/users/new' method='POST'>
-  <label for='name'>
-    name: <input name='name' type='text'/>
-  </label>
-  <input type='submit' value='Sign up'/>
-</form>
+<div class="create-user">
+  <form action='/users/new' method='POST'>
+    <label for='name'>
+      <h2>
+        Create User
+      </h2>
+      <h3>
+        Name:
+        <input name='name' type='text'/>
+        <input type='submit' value='Sign up'/>
+      </h3>
+    </label>
+  </form>
+</div>

@@ -18,11 +18,11 @@ class UserController < Sinatra::Base
   get "/users" do
     response = HTTParty.get("http://localhost:4567/users")
     @users = JSON.parse(response)
-    erb :index
+    erb :index, :layout => :'templates/layout'
   end
 
   get "/users/new" do
-    erb :"users/new"
+    erb :"users/new", :layout => :'templates/layout'
   end
 
   post "/users/new" do
@@ -33,7 +33,7 @@ class UserController < Sinatra::Base
   get "/users/edit" do
     response = HTTParty.get("http://localhost:4567/users")
     @users = JSON.parse(response)
-    erb :"users/edit"
+    erb :"users/edit", :layout => :'templates/layout'
   end
 
   post "/users/edit" do
@@ -44,7 +44,7 @@ class UserController < Sinatra::Base
   get "/users/delete" do
     response = HTTParty.get("http://localhost:4567/users")
     @users = JSON.parse(response)
-    erb :"users/delete"
+    erb :"users/delete", :layout => :'templates/layout'
   end
 
   post "/users/delete" do
