@@ -5,7 +5,6 @@ require 'json'
 class UserController < Sinatra::Base
   set :port, 9494
   set :root, File.join(File.dirname(__FILE__), '..')
-  set :views, Proc.new { File.join(root, "views") }
 
   before do
     p params
