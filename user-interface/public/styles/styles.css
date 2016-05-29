@@ -21,3 +21,11 @@
 #change-name {
   padding: 5px;
 }
+
+.main-body .seperator hr {
+  width: 100px;
+}
+
+#name {
+  padding: 1%;
+}

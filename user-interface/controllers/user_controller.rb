@@ -3,19 +3,14 @@ require 'httparty'
 require 'json'
 
 class UserController < Sinatra::Base
-  set :port, 9494
   set :root, File.join(File.dirname(__FILE__), '..')
-
-  before do
-    p params
-  end
 
   get "/" do
     redirect to"/users"
   end
 
   get "/users" do
-    response = HTTParty.get("http://localhost:4567/users")
+    response = HTTParty.get("http://jonny-simple-api-server.herokuapp.com/users")
     @users = JSON.parse(response)
     erb :index, :layout => :'templates/layout'
   end
@@ -25,29 +20,29 @@ class UserController < Sinatra::Base
   end
 
   post "/users/new" do
-    HTTParty.post("http://localhost:4567/users/new", :query => params )
+    HTTParty.post("http://jonny-simple-api-server.herokuapp.com/users/new", :query => params )
     redirect to"users"
   end
 
   get "/users/edit" do
-    response = HTTParty.get("http://localhost:4567/users")
+    response = HTTParty.get("http://jonny-simple-api-server.herokuapp.com/users")
     @users = JSON.parse(response)
     erb :"users/edit", :layout => :'templates/layout'
   end
 
   post "/users/edit" do
-    HTTParty.put("http://localhost:4567/users/#{params["user_id"]}", :query => params )
+    HTTParty.put("http://jonny-simple-api-server.herokuapp.com/users/#{params["user_id"]}", :query => params )
     redirect to"users/edit"
   end
 
   get "/users/delete" do
-    response = HTTParty.get("http://localhost:4567/users")
+    response = HTTParty.get("http://jonny-simple-api-server.herokuapp.com/users")
     @users = JSON.parse(response)
     erb :"users/delete", :layout => :'templates/layout'
   end
 
   post "/users/delete" do
-    HTTParty.post("http://localhost:4567/users/#{params["user_id"]}", :query => params )
+    HTTParty.post("http://jonny-simple-api-server.herokuapp.com/users/#{params["user_id"]}", :query => params )
     redirect to"users/delete"
   end
 
