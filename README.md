@@ -156,4 +156,4 @@ Next Version
 ------------
 
 - Add testing with either `RSpec` or `Rack::Test`
-- Add encrypted token based authentication when accessing to the API.
+- Add encrypted token based authentication when accessing the API.
